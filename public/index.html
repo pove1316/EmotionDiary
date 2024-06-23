@@ -1,48 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emotion Diary</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.0/cytoscape.min.js"></script>
+  </head>
+  <body>
     <div id="start-menu" class="container">
-        <div class="notebook">
-            <img src="images/notebook.png" alt="Notebook" class="notebook-image">
-            <div class="overlay">
-                <h1>Emotion Diary</h1>
-                <p>with friendly Ai</p>
-                <button id="start-button" class="button">시작하기</button>
-                <button id="view-records-button" class="button">기록 보기</button>
-            </div>
+      <div class="notebook">
+        <img src="images/notebook.png" alt="Notebook" class="notebook-image" />
+        <div class="overlay">
+          <h1>Emotion Diary</h1>
+          <p>with friendly AI</p>
+          <button id="start-button" class="button">시작하기</button>
+          <button id="view-records-button" class="button">기록 보기</button>
         </div>
+      </div>
     </div>
-    <div id="question-page" class="container" style="display:none;">
-        <header>
-            <h1>감정 일기장</h1>
-        </header>
-        <main>
-            <img src="images/ai-character.png" alt="AI Character" class="ai-character">
-            <p id="question-text">안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다.</p>
-            <button id="mic-button" class="mic-button">🎤 음성 입력하기</button>
-        </main>
+    <div id="question-page" class="container" style="display: none">
+      <header>
+        <h1>감정 일기장</h1>
+      </header>
+      <main>
+        <img
+          src="images/ai-character.png"
+          alt="AI Character"
+          class="ai-character"
+        />
+        <p id="question-text">
+          안녕하세요, 감정 일기장 코디네이터 '보미'라고 합니다.
+        </p>
+        <button id="mic-button" class="mic-button">🎤 음성 입력하기</button>
+        <button id="home-button" class="button">홈으로</button>
+      </main>
     </div>
-    <div id="calendar-page" class="container" style="display:none;">
-        <header>
-            <h1>CALENDER</h1>
-            <button id="back-button" class="button">뒤로</button>
-        </header>
-        <main id="calendar">
-            <!-- 달력이 여기에 표시됩니다 -->
-        </main>
-        <div id="record-detail" style="display:none;">
-            <h2>기록 세부사항</h2>
-            <p id="record-text"></p>
-            <audio id="record-audio" controls></audio>
-            <button id="back-to-calendar" class="button">달력으로 돌아가기</button>
-        </div>
+    <div id="calendar-page" class="container" style="display: none">
+      <header>
+        <h1>CALENDAR</h1>
+        <button id="back-button" class="button">홈으로</button>
+      </header>
+      <main id="calendar">
+        <!-- 달력이 여기에 표시됩니다 -->
+      </main>
+      <div id="record-detail" style="display: none">
+        <h2>기록 세부사항</h2>
+        <p id="record-text"></p>
+        <audio id="record-audio" controls></audio>
+        <button id="show-graph-button" class="button">그래프 표시</button>
+        <button id="back-to-calendar" class="button">달력으로 돌아가기</button>
+      </div>
     </div>
-    <script src="js/main.js"></script>
-</body>
+
+    <!-- 모달 창 추가 -->
+    <div id="graph-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="cy"></div>
+      </div>
+    </div>
+
+    <!-- Load common script first -->
+    <script src="js/common.js"></script>
+    <script src="js/startMenu.js"></script>
+    <script src="js/questionPage.js"></script>
+    <script src="js/calendarPage.js"></script>
+    <script src="js/graphRender.js"></script>
+  </body>
 </html>
